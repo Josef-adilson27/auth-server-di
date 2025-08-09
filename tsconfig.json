@@ -34,19 +34,23 @@
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
+    //"verbatimModuleSyntax": true,
     "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "nodenext",
   },
   
   "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
     "files": true, // Автоматически подключает файлы
     "transpileOnly": true // Ускоряет перезагрузку (но без полной проверки типов)
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 
 }
