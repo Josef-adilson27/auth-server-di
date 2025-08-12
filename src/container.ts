@@ -1,7 +1,7 @@
 import { Server } from './server.js';
 import { Container } from 'inversify';
 import { TYPES } from './types.js';
-import { AuthService } from './services/authService/AuthService.js';
+import { RegisterService } from './services/authService/register.js';
 import { LoginController } from './controllers/authController/login.js';
 import { ProfileController } from './controllers/userController/Profile.js';
 import { ProfileService } from './services/userService/ProfileService.js';
@@ -10,29 +10,32 @@ import { LogoutController } from './controllers/authController/logout.js';
 import { NoteController } from './controllers/crud/NoteController.js';
 import { NoteService } from './services/crud/NoteService.js';
 import { LogoutService } from './services/authService/logout.js';
+import { LoginService } from './services/authService/login.js';
 
 const container = new Container();
 
 //server
 container.bind<Server>(TYPES.Server).to(Server).inSingletonScope();
 
-//auth
-container.bind<AuthService>(TYPES.AuthService).to(AuthService).inSingletonScope();
-container.bind<LoginController>(TYPES.LoginController).to(LoginController).inSingletonScope();
+//register
+container.bind<RegisterService>(TYPES.RegisterService).to(RegisterService).inSingletonScope();
 container.bind<RegisterController>(TYPES.RegisterController).to(RegisterController).inSingletonScope();
 
-//user
-container.bind<ProfileController>(TYPES.ProfileController).to(ProfileController).inSingletonScope();
-container.bind<ProfileService>(TYPES.ProfileService).to(ProfileService).inSingletonScope();
+//login
+container.bind<LoginController>(TYPES.LoginController).to(LoginController).inSingletonScope();
+container.bind<LoginService>(TYPES.LoginService).to(LoginService).inSingletonScope();
 
 //logout
 container.bind<LogoutService>(TYPES.logoutService).to(LogoutService).inSingletonScope();
 container.bind<LogoutController>(TYPES.logoutController).to(LogoutController).inSingletonScope();
 
+//user
+container.bind<ProfileController>(TYPES.ProfileController).to(ProfileController).inSingletonScope();
+container.bind<ProfileService>(TYPES.ProfileService).to(ProfileService).inSingletonScope();
+
 //CRUD
 container.bind<NoteController>(TYPES.NoteController).to(NoteController).inSingletonScope()
 container.bind<NoteService>(TYPES.NoteService).to(NoteService).inSingletonScope()
-
 
 
 //exporting controlllers
