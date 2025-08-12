@@ -1,5 +1,7 @@
 import 'reflect-metadata';
 import { server } from './container.js'
+import { connectDB } from './dataBase/mongoDb.js';
 
 
-server.start(3000);
+await connectDB();
+await server.start(3000);

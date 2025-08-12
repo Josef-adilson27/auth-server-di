@@ -3,7 +3,7 @@ export const TYPES = {
   SessionMiddleware: Symbol.for('SessionMiddleware'),
 
   LoginController: Symbol.for('LoginController'),
-  AuthService: Symbol.for('AuthService'),
+  LoginService: Symbol.for('LoginService'),
 
   ProfileController: Symbol.for('ProfileController'),
   ProfileService: Symbol.for('ProfileService'),

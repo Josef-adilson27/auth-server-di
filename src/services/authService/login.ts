@@ -1,9 +1,8 @@
 import { inject, injectable } from "inversify";
 
 @injectable()
-export class AuthService{
-
+export class LoginService{
 async login() {
-    return 'login from AuthService'
+    return 'login from LoginService'
   }
 }
