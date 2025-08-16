@@ -1,3 +1,5 @@
+
+
 export const TYPES = {
   Server: Symbol.for('Server'),
   SessionMiddleware: Symbol.for('SessionMiddleware'),
@@ -17,5 +19,8 @@ export const TYPES = {
   //CRUD
   NoteService: Symbol.for('NoteService'),
   NoteController: Symbol.for('NoteController'),
+
+  //repositories
+    UserRepository: Symbol.for("UserRepository"),
 
 };

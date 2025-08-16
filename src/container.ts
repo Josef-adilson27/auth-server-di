@@ -11,6 +11,7 @@ import { NoteController } from './controllers/crud/NoteController.js';
 import { NoteService } from './services/crud/NoteService.js';
 import { LogoutService } from './services/authService/logout.js';
 import { LoginService } from './services/authService/login.js';
+import { IUserRepository, UserRepository } from './repositories/UserRepository.js'
 
 const container = new Container();
 
@@ -37,6 +38,9 @@ container.bind<ProfileService>(TYPES.ProfileService).to(ProfileService).inSingle
 container.bind<NoteController>(TYPES.NoteController).to(NoteController).inSingletonScope()
 container.bind<NoteService>(TYPES.NoteService).to(NoteService).inSingletonScope()
 
+//repositories
+container.bind<UserRepository>(TYPES.UserRepository).to(UserRepository).inSingletonScope()
+
 
 //exporting controlllers
 const loginController = container.get<LoginController>(TYPES.LoginController);
@@ -44,6 +48,7 @@ const profileController = container.get<ProfileController>(TYPES.ProfileControll
 const reigsterController = container.get<RegisterController>(TYPES.RegisterController);
 const logoutController = container.get<LogoutController>(TYPES.logoutController);
 const noteController = container.get<NoteController>(TYPES.NoteController);
+
 const server = container.get<Server>(TYPES.Server);
 
 export {loginController, profileController, reigsterController, logoutController, noteController, server};

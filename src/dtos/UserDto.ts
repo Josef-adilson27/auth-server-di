@@ -4,8 +4,10 @@ export class UserDto{
  @IsString()
   @MinLength(3)
   @MaxLength(20)
-  username: string;
-
+  name: string;
   @IsEmail()
   email: string;
+  @IsString()
+  @MinLength(4)
+  password: string
 } 
