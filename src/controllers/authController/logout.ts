@@ -1,6 +1,5 @@
 import { inject, injectable } from "inversify";
 import { Request, Response } from "express";
-import { AuthService } from "../../services/authService/AuthService.js";
 import { TYPES } from "../../types.js";
 import { LogoutService } from "../../services/authService/logout.js";
 

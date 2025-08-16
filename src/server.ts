@@ -19,7 +19,7 @@ export class Server {
     this.app.use(cookieParser());
     this.app.use(express.json());
     this.app.use(urlencoded({extended:false}));
-    this.app.use(route)
+    this.app.use("/api",route)
   }
 
   public async start(port: number) {
